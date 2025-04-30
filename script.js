@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let feedbackInteracted = false;
 
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPIuoTyu8gG7mNBRIS4AB7mkk5IeumNJzdvPDRRHI3rXVhdW9lUBDtIF7T_ZjDb0Xsdw/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1LkUZZjdOCZfUUQZSZYP658OPQ9FHeDJP8rVVuJ72fq0Pjg_BZzstyHHs8pJCSR4IfA/exec';
 
   function handleFeedbackInteraction() {
     feedbackInteracted = true;
