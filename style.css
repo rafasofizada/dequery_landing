@@ -22,8 +22,13 @@ body {
 
 .navbar {
   background-color: var(--dark-alt);
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   border-bottom: 1px solid #333;
+}
+
+.navbar h1 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .navbar-container {
@@ -39,6 +44,11 @@ body {
   font-weight: bold;
 }
 
+span.secondary {
+  color: gray;
+  font-weight: normal;
+}
+
 .title {
   font-family: var(--font-mono);
   font-size: 1.5rem;
@@ -46,6 +56,10 @@ body {
   margin-left: 2rem;
   /* Allows title to take up space and center */
   /* Reset default margin */
+}
+
+#feedback-section h2 {
+  margin: 0 !important;
 }
 
 .content-grid {
@@ -78,11 +92,16 @@ label {
   display: block;
   margin-bottom: 0.4rem;
   margin-top: 0.6rem;
-  font-weight: bold;
+  font-weight: 550;
+}
+
+input[type="checkbox"] {
+  border: 1px solid var(--dark-alt);
 }
 
 input[type="email"],
 input[type="number"],
+input[type="text"],
 select {
   width: 100%;
   padding: 0.75rem;
@@ -157,7 +176,6 @@ button {
   font-weight: normal;
 }
 
-.radio-group input[type="radio"],
 .checkbox-group input[type="checkbox"] {
   margin-right: 0.3rem;
   vertical-align: middle;
@@ -176,14 +194,9 @@ button {
 
 .features h2 {
   font-family: var(--font-mono);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
   border-bottom: 1px solid #444;
   padding-bottom: 0.5rem;
-}
-
-.features p {
-  margin-bottom: 1rem;
+  margin: 0 !important;
 }
 
 .video-container {
@@ -217,6 +230,26 @@ button {
   opacity: 1;
 }
 
+.right-panel .features {
+  margin-top: 2rem;
+  /* Add space above the features section */
+  padding: 1rem;
+  /* Add padding inside */
+  background-color: var(--dark-alt);
+  /* Give it a background */
+  border-radius: 8px;
+  /* Match other panels */
+}
+
+.right-panel .features p {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
 /* Basic responsiveness */
 @media (max-width: 768px) {
   .content-grid {
@@ -228,14 +261,15 @@ button {
 
   .left-panel {
     grid-row: 2;
-    /* Move left panel (form/features) to the second row */
   }
 
   .right-panel {
     grid-row: 1;
-    /* Move right panel (video) to the first row */
-    /* Add some bottom margin if needed when video is on top */
     margin-bottom: 1rem;
+  }
+
+  .navbar {
+    padding: 0.5rem;
   }
 
   .navbar-container {

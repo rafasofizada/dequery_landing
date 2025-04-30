@@ -25,17 +25,15 @@
         </div>
         <p class="disclaimer-text">No spam, ever. Just 1 email on release.</p>
 
-        <div class="form-group">
-          <button type="button" id="feedback-button" class="secondary-button">
-            Provide more feedback
-          </button>
-        </div>
-
-        <div id="feedback-section" style="display: none;">
-          <div class="form-group radio-group">
-            <label><input type="radio" name="payment-type" value="monthly" checked> Monthly</label>
-            <label><input type="radio" name="payment-type" value="lifetime"> Pay-once-use-forever (updates for 1
-              year)</label>
+        <div id="feedback-section">
+          <h2><span class="secondary">Optional</span></h2>
+          <div class="form-group">
+            <label>I'd prefer a...</label>
+            <label><input type="checkbox" name="payment-type" value="monthly"> Monthly subscription</label>
+            <label><input type="checkbox" name="payment-type" value="lifetime"> Pay-once-use-forever • <span
+                class="secondary">Updates for 1 year</span></label>
+            <label><input type="checkbox" name="payment-type" value="free"> Free • <span class="secondary">web
+                version • manual INSERT/CSV upload • Postgres only</span></label>
           </div>
 
           <div class="form-group">
@@ -47,13 +45,13 @@
             <label>Which databases do you use?</label>
             <div class="checkbox-group">
               <label><input type="checkbox" name="db" value="postgres"> PostgreSQL</label>
-              <label><input type="checkbox" name="db" value="mysql"> Snowflake</label>
-              <label><input type="checkbox" name="db" value="sqlite"> BigQuery</label>
-              <label><input type="checkbox" name="db" value="snowflake"> DuckDB</label>
-              <label><input type="checkbox" name="db" value="bigquery"> MS SQL Server</label>
-              <label><input type="checkbox" name="db" value="redshift"> MySQL</label>
-              <label><input type="checkbox" name="db" value="sqlserver"> Oracle</label>
-              <label><input type="checkbox" name="db" value="other"> Other</label>
+              <label><input type="checkbox" name="db" value="snowflake"> Snowflake</label>
+              <label><input type="checkbox" name="db" value="bigquery"> BigQuery</label>
+              <label><input type="checkbox" name="db" value="duckdb"> DuckDB</label>
+              <label><input type="checkbox" name="db" value="sqlserver"> MS SQL Server</label>
+              <label><input type="checkbox" name="db" value="mysql"> MySQL</label>
+              <label><input type="checkbox" name="db" value="oracle"> Oracle</label>
+              <input type="text" id="db-other-text" name="db-other-text" placeholder="Database1, database2, ...">
             </div>
           </div>
 
@@ -70,14 +68,6 @@
           </div>
         </div>
       </form>
-
-      <div class="features">
-        <h2>Features</h2>
-        <p>Visualize, inspect & debug SQL step-by-step – every JOIN, filter, GROUP BY, aggregate & window function,
-          expressions, CTEs, and subqueries (including correlated and LATERAL).</p>
-        <p>Unexpected result? Trace data lineage step-by-step, pinpointing the source rows across CTEs and subqueries
-          that contributed to it.</p>
-      </div>
     </section>
 
     <section class="right-panel">
@@ -87,6 +77,12 @@
           <source src="media/dequery_showcase.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+      </div>
+      <div class="features">
+        <p>Visualize, inspect & debug SQL step-by-step<span class="secondary"> • JOIN, filters &
+            conditions • GROUP BY, aggregate & window functions • CTEs • subqueries, correlated & LATERAL</span></p>
+        <p>Unexpected result? Trace data lineage step-by-step, find the source rows across CTEs and subqueries
+          that contributed to it.</p>
       </div>
     </section>
   </main>
