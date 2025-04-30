@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const interestForm = document.getElementById('interest-form');
   const emailInput = document.getElementById('email');
   const submitButton = interestForm.querySelector('button[type="submit"]');
+  let feedbackOpened = false;
 
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPIuoTyu8gG7mNBRIS4AB7mkk5IeumNJzdvPDRRHI3rXVhdW9lUBDtIF7T_ZjDb0Xsdw/exec';
 
@@ -31,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   feedbackButton.addEventListener('click', () => {
     const isHidden = feedbackSection.style.display === 'none';
     feedbackSection.style.display = isHidden ? 'block' : 'none';
+    feedbackOpened = !feedbackOpened;
+    submitButton.textContent = feedbackOpened ? 'Submit feedback' : 'Notify me on release';
   });
 
   // Define the callback function in the global scope

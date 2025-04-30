@@ -100,6 +100,18 @@ input[type="email"] {
   /* Allow email input to take available space */
 }
 
+.disclaimer-text {
+  font-size: 0.8rem;
+  color: #888;
+  /* A slightly muted color */
+  margin-top: -0.5rem;
+  /* Pull it closer to the input group above */
+  margin-bottom: 1rem;
+  /* Add some space before the next element */
+  text-align: center;
+  /* Center the text */
+}
+
 button {
   padding: 0.75rem;
   border: none;
