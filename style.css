@@ -210,19 +210,34 @@ button {
   .content-grid {
     grid-template-columns: 1fr;
     /* Stack columns on smaller screens */
+    padding: 1rem;
+    /* Adjust padding for mobile */
   }
 
-  .navbar {
+  .left-panel {
+    grid-row: 2;
+    /* Move left panel (form/features) to the second row */
+  }
+
+  .right-panel {
+    grid-row: 1;
+    /* Move right panel (video) to the first row */
+    /* Add some bottom margin if needed when video is on top */
+    margin-bottom: 1rem;
+  }
+
+  .navbar-container {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .logo {
     margin-bottom: 0.5rem;
+    margin: 0 auto;
   }
 
   .title {
-    text-align: left;
     font-size: 1.2rem;
+    margin: 0 auto;
   }
 }
