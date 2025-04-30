@@ -147,10 +147,43 @@ button {
   border: 1px solid var(--dark-alt);
   /* A standard CTA blue */
   color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Add transition */
 }
 
 .cta-button:hover {
   background-color: #0056b3;
+}
+
+/* Success state */
+.cta-button.success {
+  background-color: #28a745;
+  /* Green */
+  color: white;
+}
+
+.cta-button.success:hover {
+  background-color: #218838;
+  /* Darker green */
+}
+
+/* Error state */
+.cta-button.error {
+  background-color: #dc3545;
+  /* Red */
+  color: white;
+}
+
+.cta-button.error:hover {
+  background-color: #c82333;
+  /* Darker red */
+}
+
+/* Optional: Style for submitting state */
+.cta-button.submitting {
+  background-color: #6c757d;
+  /* Gray */
+  cursor: wait;
 }
 
 .secondary-button {
@@ -286,4 +319,35 @@ button {
     font-size: 1.2rem;
     margin: 0 auto;
   }
+}
+
+/* Styling for payment option groups and their value inputs */
+.payment-option-group {
+  display: block;
+  /* Ensure each group takes its own line */
+  margin-bottom: 0.5rem;
+  /* Space between groups */
+}
+
+.payment-option-group label {
+  display: inline-block;
+  /* Keep label inline with checkbox */
+  margin-right: 0.5rem;
+  /* Space between label and value input */
+  margin-bottom: 0;
+  /* Override default label margin */
+  margin-top: 0;
+  font-weight: normal;
+  /* Match other checkbox labels */
+}
+
+.fair-value-input {
+  display: inline-block;
+  width: 80px;
+  /* Adjust width as needed */
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  margin: 0.75rem 0 0.75rem 1rem;
+  /* Space from the label */
 }

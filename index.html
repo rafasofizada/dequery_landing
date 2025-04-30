@@ -29,16 +29,23 @@
           <h2><span class="secondary">Optional</span></h2>
           <div class="form-group">
             <label>I'd prefer a...</label>
-            <label><input type="checkbox" name="payment-type" value="monthly"> Monthly subscription</label>
-            <label><input type="checkbox" name="payment-type" value="lifetime"> Pay-once-use-forever • <span
-                class="secondary">Updates for 1 year</span></label>
-            <label><input type="checkbox" name="payment-type" value="free"> Free • <span class="secondary">web
-                version • manual INSERT/CSV upload • Postgres only</span></label>
-          </div>
-
-          <div class="form-group">
-            <label for="fair-value">Fair Value ($):</label>
-            <input type="number" id="fair-value" name="fair-value" min="20" value="20" required>
+            <span class="payment-option-group">
+              <label><input type="checkbox" name="payment-type" value="monthly" id="payment-monthly"> Monthly
+                subscription</label>
+              <input type="number" id="fair-value-monthly" name="fairValueMonthly" placeholder="$" min="5"
+                style="display: none;" class="fair-value-input">
+            </span>
+            <span class="payment-option-group">
+              <label><input type="checkbox" name="payment-type" value="lifetime" id="payment-lifetime">
+                Pay-once-use-forever</label>
+              <input type="number" id="fair-value-lifetime" name="fairValueLifetime" placeholder="$" min="50"
+                style="display: none;" class="fair-value-input">
+            </span>
+            <span class="payment-option-group">
+              <label><input type="checkbox" name="payment-type" value="free"> Free • <span class="secondary">web
+                  version • manual INSERT/CSV upload • Postgres only</span></label>
+              <!-- No value input for free tier -->
+            </span>
           </div>
 
           <div class="form-group">
@@ -83,6 +90,7 @@
             conditions • GROUP BY, aggregate & window functions • CTEs • subqueries, correlated & LATERAL</span></p>
         <p>Unexpected result? Trace data lineage step-by-step, find the source rows across CTEs and subqueries
           that contributed to it.</p>
+        <p>Total privacy <span class="secondary">• no data leaves your machine • no AI</span></p>
       </div>
     </section>
   </main>
