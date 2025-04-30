@@ -33,6 +33,31 @@ document.addEventListener('DOMContentLoaded', () => {
     feedbackSection.style.display = isHidden ? 'block' : 'none';
   });
 
+  // Define the callback function in the global scope
+  window.handleResponse = function (response) {
+    const originalButtonText = "Notify me on release"; // Assuming this is the original text
+
+    if (response.result === 'success') {
+      alert('Thank you! Your response has been recorded.');
+      interestForm.reset(); // Optionally reset the form
+      feedbackSection.style.display = 'none'; // Hide feedback again
+      updateFairValueMin(); // Reset fair value min/val
+    } else {
+      console.error('Submission error:', response.error);
+      alert('Oops! Something went wrong. Please try again.');
+    }
+
+    // Re-enable button
+    submitButton.disabled = false;
+    submitButton.textContent = originalButtonText;
+
+    // Cleanup the script tag
+    const scriptTag = document.getElementById('jsonp-script');
+    if (scriptTag) {
+      document.body.removeChild(scriptTag);
+    }
+  }
+
   interestForm.addEventListener('submit', (e) => {
     e.preventDefault(); // Prevent default form submission
 
@@ -40,55 +65,47 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.disabled = true;
     submitButton.textContent = 'Submitting...';
 
-    // Base data
-    let formData = {
-      email: emailInput.value,
-    };
+    // --- Build Query String ---
+    let queryString = "?callback=handleResponse"; // Start with callback
+    queryString += "&email=" + encodeURIComponent(emailInput.value);
 
     // Add feedback data only if the section is visible
     if (feedbackSection.style.display === 'block') {
       const selectedPaymentType = document.querySelector('input[name="payment-type"]:checked').value;
-      const selectedDatabases = Array.from(document.querySelectorAll('input[name="db"]:checked')).map(cb => cb.value);
+      const selectedDatabases = Array.from(document.querySelectorAll('input[name="db"]:checked'));
       const teamSizeSelect = document.getElementById('team-size');
 
-      formData = {
-        ...formData,
-        paymentType: selectedPaymentType,
-        fairValue: fairValueInput.value,
-        databases: selectedDatabases,
-        teamSize: teamSizeSelect.value
-      };
+      queryString += "&paymentType=" + encodeURIComponent(selectedPaymentType);
+      queryString += "&fairValue=" + encodeURIComponent(fairValueInput.value);
+      selectedDatabases.forEach(cb => {
+        queryString += "&db=" + encodeURIComponent(cb.value); // Add each selected db
+      });
+      queryString += "&teamSize=" + encodeURIComponent(teamSizeSelect.value);
     }
 
-    fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'cors', // Required for cross-origin requests to Apps Script
-      cache: 'no-cache',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.result === 'success') {
-          alert('Thank you! Your response has been recorded.');
-          interestForm.reset(); // Optionally reset the form
-          feedbackSection.style.display = 'none'; // Hide feedback again
-          updateFairValueMin(); // Reset fair value min/val
-        } else {
-          console.error('Submission error:', data.error);
-          alert('Oops! Something went wrong. Please try again.');
-        }
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-        alert('Oops! There was a network error. Please try again.');
-      })
-      .finally(() => {
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
-      });
+    // --- Create and append script tag ---
+    // Remove any previous script tag first
+    const existingScriptTag = document.getElementById('jsonp-script');
+    if (existingScriptTag) {
+      document.body.removeChild(existingScriptTag);
+    }
+
+    const script = document.createElement('script');
+    script.id = 'jsonp-script'; // Add an ID for easy removal
+    script.src = SCRIPT_URL + queryString;
+    script.onerror = function () {
+      // Handle script loading errors (network issues, etc.)
+      alert('Oops! There was a network error submitting your request. Please try again.');
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+      // Clean up potentially failed script tag and global function
+      const scriptTag = document.getElementById('jsonp-script');
+      if (scriptTag) {
+        document.body.removeChild(scriptTag);
+      }
+      delete window.handleResponse;
+    };
+    document.body.appendChild(script);
   });
 
   // Initial call to set the correct minimum based on the default checked radio
