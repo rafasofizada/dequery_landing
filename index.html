@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dequery - World's First SQL Debugger</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">𒄿 dequery</div>
+      <h1 class="title">world's first SQL debugger</h1>
+    </div>
+  </header>
+
+  <main class="content-grid">
+    <section class="left-panel">
+      <form id="interest-form">
+        <div class="form-group inline-group">
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          <button type="submit" class="cta-button">Notify me on release</button>
+        </div>
+
+        <div class="form-group">
+          <button type="button" id="feedback-button" class="secondary-button">
+            Provide more feedback
+          </button>
+        </div>
+
+        <div id="feedback-section" style="display: none;">
+          <div class="form-group radio-group">
+            <label><input type="radio" name="payment-type" value="monthly" checked> Monthly</label>
+            <label><input type="radio" name="payment-type" value="lifetime"> Pay-once-use-forever (updates for 1
+              year)</label>
+          </div>
+
+          <div class="form-group">
+            <label for="fair-value">Fair Value ($):</label>
+            <input type="number" id="fair-value" name="fair-value" min="20" value="20" required>
+          </div>
+
+          <div class="form-group">
+            <label>Which databases do you use?</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="db" value="postgres"> PostgreSQL</label>
+              <label><input type="checkbox" name="db" value="mysql"> Snowflake</label>
+              <label><input type="checkbox" name="db" value="sqlite"> BigQuery</label>
+              <label><input type="checkbox" name="db" value="snowflake"> DuckDB</label>
+              <label><input type="checkbox" name="db" value="bigquery"> MS SQL Server</label>
+              <label><input type="checkbox" name="db" value="redshift"> MySQL</label>
+              <label><input type="checkbox" name="db" value="sqlserver"> Oracle</label>
+              <label><input type="checkbox" name="db" value="other"> Other</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="team-size">Team Size:</label>
+            <select id="team-size" name="team-size">
+              <option value="1">Only me</option>
+              <option value="5">&lt;5</option>
+              <option value="10">&lt;10</option>
+              <option value="10-19">&lt;20</option>
+              <option value="20-49">&lt;50</option>
+              <option value="50+">50+</option>
+            </select>
+          </div>
+        </div>
+      </form>
+
+      <div class="features">
+        <h2>Features</h2>
+        <p>Visualize, inspect & debug SQL step-by-step – every JOIN, filter, GROUP BY, aggregate & window function,
+          expressions, CTEs, and subqueries (including correlated and LATERAL).</p>
+        <p>Unexpected result? Trace data lineage step-by-step, pinpointing the source rows across CTEs and subqueries
+          that contributed to it.</p>
+      </div>
+    </section>
+
+    <section class="right-panel">
+      <div class="video-container">
+        <video autoplay muted controls poster="media/thumbnail.png">
+          <!-- Add your video source here -->
+          <source src="media/dequery_showcase.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
