@@ -20,6 +20,10 @@ body {
   line-height: 1.6;
 }
 
+h3 {
+  margin: 0.5rem 0;
+}
+
 .navbar {
   background-color: var(--dark-alt);
   padding: 1rem 0;
@@ -91,7 +95,6 @@ span.secondary {
 label {
   display: block;
   margin-bottom: 0.4rem;
-  margin-top: 0.6rem;
   font-weight: 550;
 }
 
@@ -142,7 +145,8 @@ button {
 }
 
 .cta-button {
-  flex-basis: 300px;
+  margin-top: 1rem;
+  width: 100%;
   background-color: #007bff;
   border: 1px solid var(--dark-alt);
   /* A standard CTA blue */

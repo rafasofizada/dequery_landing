@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       interestForm.reset();
       setTimeout(() => {
         submitButton.classList.add('success');
-        submitButton.textContent = 'Success!';
+        submitButton.textContent = 'Success! To update your response, reload the page & resubmit';
         submitButton.disabled = false;
       }, 0);
     } else {
