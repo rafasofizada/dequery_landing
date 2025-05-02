@@ -32,19 +32,23 @@
             <span class="payment-option-group">
               <label><input type="checkbox" name="payment-type" value="monthly" id="payment-monthly"> Monthly
                 subscription</label>
-              <input type="number" id="fair-value-monthly" name="fairValueMonthly" placeholder="$" min="5"
-                style="display: none;" class="fair-value-input">
+              <input type="number" id="fair-value-monthly" name="fairValueMonthly" placeholder="$, per user/month"
+                min="5" style="display: none;" class="fair-value-input">
             </span>
             <span class="payment-option-group">
               <label><input type="checkbox" name="payment-type" value="lifetime" id="payment-lifetime">
-                Pay-once-use-forever</label>
+                Pay-once-use-forever<span class="secondary"> •
+                  1 year of updates</span></label>
               <input type="number" id="fair-value-lifetime" name="fairValueLifetime" placeholder="$" min="50"
                 style="display: none;" class="fair-value-input">
             </span>
             <span class="payment-option-group">
+              <label><input type="checkbox" name="payment-type" value="credits"> Pay-as-you-go<span class="secondary"> •
+                  org-wide license • $X per N queries</span></label>
+            </span>
+            <span class="payment-option-group">
               <label><input type="checkbox" name="payment-type" value="free"> Free • <span class="secondary">web
                   version • manual INSERT/CSV upload • Postgres only</span></label>
-              <!-- No value input for free tier -->
             </span>
           </div>
 
