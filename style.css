@@ -239,52 +239,92 @@ button {
 .video-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
-  /* 16:9 Aspect Ratio */
-  background-color: #000;
-  border-radius: 4px;
   overflow: hidden;
-  /* Ensure video stays within bounds */
 }
 
 .video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  border: none;
+  border-radius: 4px;
 }
 
-/* Hide controls by default */
 .video-container video::-webkit-media-controls {
   opacity: 0;
   transition: opacity 0.3s ease-out;
 }
 
-/* Show controls on hover */
 .video-container:hover video::-webkit-media-controls {
   opacity: 1;
 }
 
 .right-panel .features {
-  margin-top: 2rem;
-  /* Add space above the features section */
-  padding: 1rem;
-  /* Add padding inside */
+  margin-top: 1rem;
   background-color: var(--dark-alt);
-  /* Give it a background */
+  padding: 1rem;
   border-radius: 8px;
-  /* Match other panels */
+  font-size: 0.9rem;
 }
 
 .right-panel .features p {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0.5rem 0;
+}
 
-  &:not(:last-child) {
-    margin-bottom: 1rem;
-  }
+.right-panel .features p:not(:last-child) {
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-header {
+  text-align: center;
+  margin: 0.5rem auto 1rem;
+  max-width: 1400px;
+  padding: 0 1rem;
+  /* Add some padding on smaller screens */
+}
+
+.section-header h2 {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  border-bottom: 2px solid var(--white);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  margin: 0;
+  color: var(--white);
+}
+
+.feature-section {
+  text-align: center;
+  padding: 2rem 1rem;
+  /* Add some padding on smaller screens */
+  max-width: 1400px;
+  /* Ensures content aligns with navbar and other sections */
+  margin: 0 auto 2rem;
+  /* Centers the section and adds bottom margin */
+  background-color: var(--dark-alt);
+  /* Optional: if you want a background like the left-panel */
+  border-radius: 8px;
+  /* Optional: for rounded corners */
+}
+
+.feature-section h3 {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+
+.feature-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  max-width: 700px;
+  /* Constrain text width for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-section .video-container {
+  margin: 0 auto;
 }
 
 /* Basic responsiveness */
